@@ -2,6 +2,7 @@
 
 // -----------------------------------------------
 
+#let vspace = v(1.5em, weak: true)
 #show: doc => article-style(doc)
 
 // -----------------------------------------------
@@ -40,9 +41,20 @@
 )
 
 // -----------------------------------------------
+// bib file and bib citation style
+
+#add-bib-resource(read("papers.bib"))
+#let bib-style = format-citation-numeric(
+  compact: true,
+)
+
+#show: doc => refsection(format-citation: bib-style.format-citation, doc)
+
+// -----------------------------------------------
 // document body
 
 #show: doc => document-body(
+  // toggle on/off the line numbering here
   line-number: true,
   doc
 )
@@ -58,7 +70,14 @@ and the combinatorial background, were applied.
 The biological effect of radiation depends on the quality of
 the radiation as well as on the amount of energy absorbed. Evidence
 suggests that this quality dependence is primarily caused by
-the differences in rates of energy loss.
+the differences in rates of energy loss #cite("Raby1966", "Dupont1961").
+The general criteria that have been used are:
+#set enum(numbering: "(i)")
++ to terminate the iteration when the residue between iterated and experiment values is of the order of experimental errors #cite("Raby1966","Appleman1959","vanBerg1965","Bryant1985","Allen1977");
++ to terminate when the smoothest solution has been obtained.
+
+For an overall appreciation of the work carried out in this field,
+see Refs. #cite("Keil1969") and #cite("Guignard1983").
 
 In this report, we will explore the various factors that influence fluid
 dynamics in glaciers and how they contribute to the formation and behaviour 
@@ -157,15 +176,44 @@ $
 )
 
 // -----------------------------------------------
+// Appendix
+// -----------------------------------------------
+
 #pagebreak(to: "odd")
 #show: appendix.with(title: "Appendix")
+
+= Construction on a flat site
+
+== General considerations
+
+Following on ECFA recommendation, the project described in this
+report is based on the assumption that the machine is built close
+to the present CERN site, and has been taken into account in
+the cost estimate.
+
+== Effects on the construction
+
+The general layout of the machine would be very similar to that
+shown in the main body of the report.
+
+// -----------------------------------------------
+// Back matter
 // -----------------------------------------------
 
-= Ambiguous tracks
+#pagebreak(to: "odd")
 
-#lorem(35)
-
-// -----------------------------------------------
 #fig-outline()
 #tab-outline()
+
+// bibliography
+
+#pagebreak(to: "odd")
+#let bib-format-ref = format-reference(
+  reference-label: bib-style.reference-label,
+)
+#print-bibliography(
+  title: "References",
+  format-reference: bib-format-ref,
+  label-generator: bib-style.label-generator,
+)
 // -----------------------------------------------

@@ -1,7 +1,10 @@
-// Typst template that intends to mimic ALICE Analysis Notes LaTeX style
-// It is inspired from the Typst template rubber-article.
+// Typst template that intends to mimic the LaTeX style of 
+// the ALICE analysis notes.
+//
+// Several parts are taken from the Typst template rubber-article.
+//
 // -----------------------------------------------
-// packages
+// packages and templates
 // elegant headers and footers
 #import "@preview/chic-hdr:0.5.0": *
 // authors, affiliations, abstract
@@ -10,11 +13,9 @@
 #import "@preview/rubber-article:0.5.1": ctable, fig-outline, tab-outline, shortcap, appendix
 // customize and format enums and lists
 #import "@preview/itemize:0.2.0" as el
+// BibLaTex bib style for Typst
+#import "@preview/pergamon:0.7.1": *
 //
-// -----------------------------------------------
-
-#let vspace = v(1.5em, weak: true)
-
 // -----------------------------------------------
 // setting styles for the document
 // -----------------------------------------------
