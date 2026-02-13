@@ -47,7 +47,9 @@
     ),
   ),
   the-abstract: [
-    Replace with the abstract content. #lorem(50)
+    Each paper should be preceded by a short Abstract of not more than 
+    150 words, which should be written as a single paragraph and should not 
+    contain references. #lorem(50)
   ],
   doc
 )
@@ -123,12 +125,12 @@ caption should be positioned _above_ the tabular material.
 earlier and shows the good agreement between predictions and
 calculations. Comparison should be made with the decay curves shown
 in Figs.~6 and 7 of Ref.~#cite("vanBerg1965"), and further information
-is given in Section ref{sec-curvature} and #ref(<sec-app>, supplement: "Appendix").
+is given in @sec-curvature and #ref(<sec-app>, supplement: "Appendix").
 
 
 == Including figures
 
-Figures can also be imported, in PDF, PNG and JPEG format. @fig-residual-plot show 
+Figures can also be imported, in PDF, PNG and JPEG format. #ref(<fig-residual-plot>, supplement: "Figure") show 
 how to include a figure from an external file with the `#figure(image())` 
 command of Typst. The `shortcap()` command from the `rubber-article` package 
 allows to give both a short and a long caption. The short caption is used in 
@@ -142,7 +144,31 @@ the outline with the list of figures.
   )
 )<fig-residual-plot>
 
-== Examples of equations
+== Examples of equations <sec-curvature>
+
+#ref(<eq-a1>, supplement: "Equation") representing a straight line at an angle $theta$, is 
+
+$ n^(k)(h)u = lambda h t g q_(k) $<eq-a1>
+
+and
+
+$ n^(k)(h) = k h frac(k, 3 2) $
+
+where:
+- $lambda$ is the distance between two consecutive sweep lines,
+- $u$ is the least count.
+
+We consider a parabola, the tangent of which is parallel to the vertical axis of the 
+main matrix. A sufficiently good approximation to a parabola [see @eq-a3] drawn inside 
+the matrix can be given by the following formula:
+
+$ n_(q) = alpha q^(2) alpha = frac(lambda^(2), 3 R u) $<eq-a3>
+
+where $R$ is the radius of curvature. We have defined the following relationship:
+
+$ n_(q) + mu_(q) "with" mu_(q) = alpha (2 q + 1) $
+
+= Background
 
 In this report, we will explore the various factors that influence fluid
 dynamics in glaciers and how they contribute to the formation and behaviour 
@@ -165,7 +191,7 @@ $ 7.32 beta +
 
 $ v := vec(x_1, x_2, x_3) $
 
-= Background
+
 
 In the case of glaciers, fluid
 dynamics principles can be used
@@ -175,17 +201,6 @@ influenced by factors such as
 temperature, pressure, and the
 presence of other fluids (such as
 water).
-
-#lorem(50) Here is the paragraph spacing with default settings.
-
-#lorem(60) Here the vspace function is used to add some space between paragraphs on demand to
-
-#vspace
-#lorem(100)
-$
-  x_(1,2) = (-b plus.minus sqrt(b^2 - 4 a c))/ (2 a)
-$
-#lorem(100)
 
 == In this paper
 
@@ -209,12 +224,6 @@ $
 
 = Related Work
 
-#lorem(200)
-
-$
-  y = k x + d
-$
-
 #lorem(50)
 
 // Example of a custom table
@@ -225,6 +234,22 @@ $
       "Short caption", "This is a custom table",
     )
 )
+
+= Conclusion
+
+The theoretical considerations presented have been confirmed
+by their close agreement with the results of practical experiments.
+An account of the earlier work carried out in this field can
+be found in the bibliography.
+
+It is expected that in the next few years many new results will
+be published, since a significant number of new experiments have
+recently been launched.
+
+= Acknowledgements
+
+We wish to thank C. Brown for his most enlightening comments
+on this topic.
 
 // -----------------------------------------------
 // Appendix
@@ -253,7 +278,12 @@ shown in the main body of the report.
 
 #pagebreak(to: "odd")
 
+// list of figures
+
 #fig-outline()
+
+// list of tables
+
 #tab-outline()
 
 // bibliography

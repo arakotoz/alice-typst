@@ -58,8 +58,11 @@
   show heading.where(level: 3): set text(size: myfont-size, weight: "bold", style: "italic")
   show heading: set block(above: 1.65em, below: 1.3em)
 
-  show math.equation: set block(above: 2em, below: 2em)
-  set math.equation(numbering: "(1.1)")
+  show math.equation: set block(above: 1em, below: 1em)
+  set math.equation(
+    numbering: "(1)",
+    supplement: "Eq."
+  )
 
   set par(
     leading: 0.65em,
@@ -132,7 +135,7 @@
 
   // figure styles (slightly modified rubber-article)
   show figure.where(kind: table): set figure(
-    supplement: strong([Table]),
+    supplement: [Table],
     numbering: "1",
     gap: 1em
   )
@@ -141,7 +144,7 @@
   ): set figure.caption(position: top)
 
   show figure.where(kind: image): set figure(
-    supplement: strong([Fig.]),
+    supplement: [Fig.],
     numbering: "1",
     gap: 0.65em
   )
@@ -197,7 +200,7 @@
   align(
     center,
     text(
-      size: 16pt, 
+      size: 18pt, 
       weight: "regular",
       font: myfont,
       [EUROPEAN ORGANIZATION OF NUCLEAR RESEARCH]
@@ -217,7 +220,7 @@
   align(
     right,
     text(
-      size: 10pt,
+      size: 11pt,
       weight: "regular",
       font: myfont,
       [ALICE-ANA-#theyear\-xxx \ 
@@ -267,7 +270,7 @@
 
 #let document-body(
   line-number: true,
-  hyperlink-color: rgb("#0000FF"),
+  hyperlink-color: rgb(0,0,205),
   doc
 ) = {
 
@@ -282,10 +285,10 @@
   )
 
   // add hyperlink color
-  // (use LaTeX blue #0000FF)
+  // LaTeX blue is rgb("#0000FF") or rgb(0,0,255)
 
-  show link: set text(fill: rgb("#0000FF"))
-  show ref: set text(fill: rgb("#0000FF"))
+  show link: set text(fill: rgb(0,0,205))
+  show ref: set text(fill: rgb(0, 0, 205))
   doc
 }
 
