@@ -30,8 +30,9 @@
       affiliations: ((name: "University A", index: 1),),
     ),
     (
-      name: "Bob Jones",
-      email: "bob@example.com",
+      name: "Josiah Carberry",
+      email: "josiah@example.com",
+      orcid: "0000-0002-1825-0097",
       corresponding: true,
       roles: "Corresponding author",
       affiliations: (
