@@ -100,7 +100,7 @@ Ref. #cite("Appleman1959"), and these are reproduced in @tab-LET.
 
 Note that a table is produced with the `ctable()` environment 
 from the Typst package `rubber-article`, and should be called inside 
-the `#figure()` command. It mimics LaTeX's `table` environment. The 
+the `#figure()` command. It mimics the `table` environment from LaTeX. The 
 caption should be positioned _above_ the tabular material.
 
 // Example of a custom table
@@ -127,15 +127,6 @@ is given in Section ref{sec-curvature} and #ref(<sec-app>, supplement: "Appendix
 
 == Including figures
 
-In this report, we will explore the various factors that influence fluid
-dynamics in glaciers and how they contribute to the formation and behaviour 
-of these natural structures.
-- The climate
-  - Temperature
-  - Precipitation
-- The topography
-- The geology
-
 Figures can also be imported, in PDF, PNG and JPEG format. @fig-residual-plot show 
 how to include a figure from an external file with the `#figure(image())` 
 command of Typst. The `shortcap()` command from the `rubber-article` package 
@@ -149,6 +140,17 @@ the outline with the list of figures.
     "Including a figure from an external file. Here, we are plotting the cluster-track residual distributions for the back face (layer 3) of the top half (h1) disk 1 of the MFT detector for two alignment geometries that only differ by global translations and global rotations of each half MFT."
   )
 )<fig-residual-plot>
+
+== Examples of equations
+
+In this report, we will explore the various factors that influence fluid
+dynamics in glaciers and how they contribute to the formation and behaviour 
+of these natural structures.
+- The climate
+  - Temperature
+  - Precipitation
+- The topography
+- The geology
 
 The flow rate of a glacier is defined by the following equation:
 

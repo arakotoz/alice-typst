@@ -50,25 +50,25 @@
     }
   }
   show heading.where(level: 1): set text(size: 12pt, weight: "bold")
-  show heading.where(level: 2): set text(size: 10pt, weight: "bold")
-  show heading.where(level: 3): set text(size: 10pt, weight: "bold", style: "italic")
-  show heading: set block(above: 1.65em, below: 1.4em)
+  show heading.where(level: 2): set text(size: 11pt, weight: "bold")
+  show heading.where(level: 3): set text(size: 11pt, weight: "bold", style: "italic")
+  show heading: set block(above: 1.65em, below: 1.3em)
 
   show math.equation: set block(above: 2em, below: 2em)
   set math.equation(numbering: "(1.1)")
 
   set par(
     leading: 0.65em,
-    spacing: 1.4em,
+    spacing: 1.2em,
     justify: true
   )
 
   let markers = ([--], [--], [#sym.ast.op], [#sym.circle.filled.tiny])
   show: el.default-enum-list.with(
-    indent: 1.5em,
+    indent: 0.8em,
     body-indent: 0.65em,
-    enum-spacing: 1.4em,
-    item-spacing: 1.4em
+    enum-spacing: 1.2em,
+    item-spacing: 1em
   )
   set list(marker: markers)
   
@@ -160,7 +160,7 @@
       strong(prefix)
       it.body
     }
-    block(width: 90%, cap)
+    block(width: 92%, cap)
   }
   doc
 }
