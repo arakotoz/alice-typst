@@ -277,7 +277,7 @@
 
 #let document-body(
   line-number: true,
-  hyperlink-color: rgb(0,0,205), // useful ?
+  hyperlink-color: rgb(0,0,205),
   doc
 ) = {
 
@@ -294,8 +294,8 @@
   // add hyperlink color
   // LaTeX blue is rgb("#0000FF") or rgb(0,0,255)
 
-  show link: set text(fill: rgb(0,0,205))
-  show ref: set text(fill: rgb(0, 0, 205))
+  show link: set text(fill: hyperlink-color)
+  show ref: set text(fill: hyperlink-color)
   doc
 }
 
