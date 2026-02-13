@@ -25,7 +25,11 @@
 
 #let article-style(
   myfont: "Times New Roman",
+  myfont-size: 11pt,
+  myfont-header-size: 12pt,
+  myfont-caption-size: 10pt,
   myfont-mono: "Latin Modern Mono",
+  myfont-mono-size: 10pt,
   doc
 ) = {
  set page(
@@ -35,12 +39,12 @@
   set text(
     font: myfont,
     lang: "en",
-    size: 11pt,
+    size: myfont-size,
     weight: "regular"
   )
   show raw: set text(
     font: myfont-mono,
-    size: 10pt
+    size: myfont-mono-size
   )
 
   set heading(numbering: "1.1")
@@ -49,9 +53,9 @@
       block(counter(heading).display(it.numbering) + h(0.65em) + it.body)
     }
   }
-  show heading.where(level: 1): set text(size: 12pt, weight: "bold")
-  show heading.where(level: 2): set text(size: 11pt, weight: "bold")
-  show heading.where(level: 3): set text(size: 11pt, weight: "bold", style: "italic")
+  show heading.where(level: 1): set text(size: myfont-header-size, weight: "bold")
+  show heading.where(level: 2): set text(size: myfont-size, weight: "bold")
+  show heading.where(level: 3): set text(size: myfont-size, weight: "bold", style: "italic")
   show heading: set block(above: 1.65em, below: 1.3em)
 
   show math.equation: set block(above: 2em, below: 2em)
@@ -126,7 +130,7 @@
   // figures spacing vs text
   show figure: set block(above: 2em, below: 2em)
 
-  // figure styles (rubber-article)
+  // figure styles (slightly modified rubber-article)
   show figure.where(kind: table): set figure(
     supplement: strong([Table]),
     numbering: "1",
@@ -145,11 +149,12 @@
   // set table style (rubber-article)
   set table(stroke: none, gutter: auto, fill: none)
 
-  // emphasize the figure caption numbering (rubber-article)
+  // emphasize the figure caption numbering 
+  // (slightly modified rubber-article)
   show figure.caption: it => {
     set par(justify: true)
     set text(
-      size: 10pt
+      size: myfont-caption-size
     )
     let prefix = {
       it.supplement + " " + context it.counter.display(it.numbering) + ": "
@@ -170,7 +175,7 @@
 // -----------------------------------------------
 
 #let front-matter(
-  myfont: "Latin Modern Roman",
+  myfont: "Times New Roman",
   the-title: "A very very long and complicated title",
   the-short-title: none,
   the-authors: none,
@@ -262,7 +267,7 @@
 
 #let document-body(
   line-number: true,
-  hyperlink-color: blue.darken(20%),
+  hyperlink-color: rgb("#0000FF"),
   doc
 ) = {
 
@@ -277,9 +282,10 @@
   )
 
   // add hyperlink color
+  // (use LaTeX blue #0000FF)
 
-  show link: set text(fill: blue.darken(20%))
-  show ref: set text(fill: blue.darken(20%))
+  show link: set text(fill: rgb("#0000FF"))
+  show ref: set text(fill: rgb("#0000FF"))
   doc
 }
 
