@@ -110,10 +110,6 @@ $ 7.32 beta +
 
 $ v := vec(x_1, x_2, x_3) $
 
-#set text(
-  font: "New Computer Modern"
-)
-
 = Background
 
 In the case of glaciers, fluid
