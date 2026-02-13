@@ -32,10 +32,13 @@
   myfont-mono-size: 10pt,
   doc
 ) = {
- set page(
+  // page layout
+  set page(
     paper: "a4",
     margin: (inside: 3cm, outside: 2cm, top: 3cm),
   )
+
+  // font type and size
   set text(
     font: myfont,
     lang: "en",
@@ -47,6 +50,7 @@
     size: myfont-mono-size
   )
 
+  // headings
   set heading(numbering: "1.1")
   show heading: it => {
     if it.numbering == none { it } else { 
@@ -58,18 +62,21 @@
   show heading.where(level: 3): set text(size: myfont-size, weight: "bold", style: "italic")
   show heading: set block(above: 1.65em, below: 1.3em)
 
+  // math equations
   show math.equation: set block(above: 1em, below: 1em)
   set math.equation(
     numbering: "(1)",
     supplement: "Eq."
   )
 
+  // paragraph
   set par(
     leading: 0.65em,
     spacing: 1.2em,
     justify: true
   )
 
+  // enum
   let markers = ([--], [--], [#sym.ast.op], [#sym.circle.filled.tiny])
   show: el.default-enum-list.with(
     indent: 0.8em,
@@ -265,12 +272,12 @@
 }
 
 // -----------------------------------------------
-// options for the document body
+// specific options for the document body
 // -----------------------------------------------
 
 #let document-body(
   line-number: true,
-  hyperlink-color: rgb(0,0,205),
+  hyperlink-color: rgb(0,0,205), // useful ?
   doc
 ) = {
 
