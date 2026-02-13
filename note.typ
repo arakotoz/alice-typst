@@ -64,6 +64,12 @@
   doc
 )
 
+// edit PDF metadata
+#set document(
+  title: the-title,
+  author: ("Alice Smith", "Josiah Carberry", "Carol Davis")
+)
+
 // -----------------------------------------------
 // bib file and bib citation style
 // -----------------------------------------------
