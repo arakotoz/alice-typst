@@ -1,9 +1,13 @@
 #import "lib.typ": *
 
 // -----------------------------------------------
+// define a few global variables
+// -----------------------------------------------
 
+// vertical space
 #let vspace = v(1.5em, weak: true)
 
+// LaTeX DIY logo
 #let LaTeX = {
   [L];
   box(move(dx: -4.2pt, dy: -1.2pt, box(scale(65%)[A])));
@@ -14,8 +18,14 @@
 }
 #show "LaTeX": LaTeX
 
+// -----------------------------------------------
+// setting article-style for the document
+// -----------------------------------------------
+
 #show: doc => article-style(doc)
 
+// -----------------------------------------------
+// front matter
 // -----------------------------------------------
 
 #let the-title = "Test-beam performance of a tracking TRD prototype"
@@ -56,6 +66,7 @@
 
 // -----------------------------------------------
 // bib file and bib citation style
+// -----------------------------------------------
 
 #add-bib-resource(read("papers.bib"))
 #let bib-style = format-citation-numeric(
@@ -66,6 +77,7 @@
 
 // -----------------------------------------------
 // document body
+// -----------------------------------------------
 
 #show: doc => document-body(
   // toggle on/off the line numbering here
@@ -193,14 +205,10 @@ $ v := vec(x_1, x_2, x_3) $
 
 
 
-In the case of glaciers, fluid
-dynamics principles can be used
-to understand how the movement
-and behaviour of the ice is
-influenced by factors such as
-temperature, pressure, and the
-presence of other fluids (such as
-water).
+In the case of glaciers, fluid dynamics principles can be used
+to understand how the movement and behaviour of the ice is
+influenced by factors such as temperature, pressure, and the
+presence of other fluids (such as water).
 
 == In this paper
 
@@ -273,7 +281,7 @@ The general layout of the machine would be very similar to that
 shown in the main body of the report.
 
 // -----------------------------------------------
-// Back matter
+// back matter
 // -----------------------------------------------
 
 #pagebreak(to: "odd")
