@@ -15,13 +15,16 @@
 #import "@preview/itemize:0.2.0" as el
 // BibLaTex bib style for Typst
 #import "@preview/pergamon:0.7.1": *
+// drawing 
+// #import "@preview/cetz:0.4.2": canvas, draw
+// #import "@preview/cetz-plot:0.1.3": plot
 //
 // -----------------------------------------------
 // setting styles for the document
 // -----------------------------------------------
 
 #let article-style(
-  myfont: "Latin Modern Roman",
+  myfont: "Times New Roman",
   myfont-mono: "Latin Modern Mono",
   doc
 ) = {
@@ -32,10 +35,13 @@
   set text(
     font: myfont,
     lang: "en",
-    size: 10pt,
+    size: 11pt,
     weight: "regular"
   )
-  show raw: set text(font: myfont-mono)
+  show raw: set text(
+    font: myfont-mono,
+    size: 10pt
+  )
 
   set heading(numbering: "1.1")
   show heading: it => {
@@ -124,10 +130,16 @@
   show figure.where(kind: table): set figure(
     supplement: strong([Table]),
     numbering: "1",
+    gap: 1em
   )
+  show figure.where(
+    kind: table
+  ): set figure.caption(position: top)
+
   show figure.where(kind: image): set figure(
     supplement: strong([Fig.]),
     numbering: "1",
+    gap: 0.65em
   )
 
   // set table style (rubber-article)
@@ -136,6 +148,9 @@
   // emphasize the figure caption numbering (rubber-article)
   show figure.caption: it => {
     set par(justify: true)
+    set text(
+      size: 10pt
+    )
     let prefix = {
       it.supplement + " " + context it.counter.display(it.numbering) + ": "
     }
@@ -145,7 +160,7 @@
       strong(prefix)
       it.body
     }
-    block(width: 75%, cap)
+    block(width: 90%, cap)
   }
   doc
 }

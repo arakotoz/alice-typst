@@ -3,6 +3,17 @@
 // -----------------------------------------------
 
 #let vspace = v(1.5em, weak: true)
+
+#let LaTeX = {
+  [L];
+  box(move(dx: -4.2pt, dy: -1.2pt, box(scale(65%)[A])));
+  box(move(dx: -5.7pt, dy: 0pt, [T]));
+  box(move(dx: -7.0pt, dy: 2.7pt, box(scale(100%)[E])));
+  box(move(dx: -8.0pt, dy: 0pt, [X]));
+  h(-8.0pt)
+}
+#show "LaTeX": LaTeX
+
 #show: doc => article-style(doc)
 
 // -----------------------------------------------
@@ -79,6 +90,43 @@ The general criteria that have been used are:
 For an overall appreciation of the work carried out in this field,
 see Refs. #cite("Keil1969") and #cite("Guignard1983").
 
+= Examples of figures and tables
+
+== Including tabular material
+
+Smith tabulated the average values of mean linear energy transfer
+(LET) obtained by the different methods used in
+Ref. #cite("Appleman1959"), and these are reproduced in @tab-LET.
+
+Note that a table is produced with the `ctable()` environment 
+from the Typst package `rubber-article`, and should be called inside 
+the `#figure()` command. It mimics LaTeX's `table` environment. The 
+caption should be positioned _above_ the tabular material.
+
+// Example of a custom table
+#figure(
+ ctable(
+    cols: "l[6cm]|cc", 
+    [Radiation], [Smith], [Jones],
+    [1 MeV $alpha$], [], [],
+    [200 kVp X-rays total], [3.25], [1.79],
+    table.hline(stroke: .75pt),
+    [200 kVp X-rays (primary)], [2.60], [1.48]
+  ),
+  caption: shortcap(
+    "Mean LET values in water", "Calculated mean LET values in water (keV/mm)",
+  )
+)<tab-LET>
+
+@tab-LET is reproduced from the publication mentioned
+earlier and shows the good agreement between predictions and
+calculations. Comparison should be made with the decay curves shown
+in Figs.~6 and 7 of Ref.~#cite("vanBerg1965"), and further information
+is given in Section ref{sec-curvature} and #ref(<sec-app>, supplement: "Appendix").
+
+
+== Including figures
+
 In this report, we will explore the various factors that influence fluid
 dynamics in glaciers and how they contribute to the formation and behaviour 
 of these natural structures.
@@ -88,15 +136,19 @@ of these natural structures.
 - The topography
 - The geology
 
-Glaciers as the one shown in @logo will cease to exist if we don't take 
-action soon!
+Figures can also be imported, in PDF, PNG and JPEG format. @fig-residual-plot show 
+how to include a figure from an external file with the `#figure(image())` 
+command of Typst. The `shortcap()` command from the `rubber-article` package 
+allows to give both a short and a long caption. The short caption is used in 
+the outline with the list of figures.
 
 #figure(
-  image("fig/alicelogo.pdf"),
-  caption: [
-    _Logo_ for the ALICE experiment at CERN.
-  ]
-)<logo>
+  image("fig/norm-logy-dcacorr-pass2-lhc23e-dcacorr-rot-pass2-lhc23e-residual-distr-h1-l3.pdf"),
+  caption: shortcap(
+    "Including a figure from an external file",
+    "Including a figure from an external file. Here, we are plotting the cluster-track residual distributions for the back face (layer 3) of the top half (h1) disk 1 of the MFT detector for two alignment geometries that only differ by global translations and global rotations of each half MFT."
+  )
+)<fig-residual-plot>
 
 The flow rate of a glacier is defined by the following equation:
 
@@ -178,7 +230,7 @@ $
 #pagebreak(to: "odd")
 #show: appendix.with(title: "Appendix")
 
-= Construction on a flat site
+= Construction on a flat site <sec-app>
 
 == General considerations
 
